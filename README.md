@@ -18,3 +18,6 @@ clientId             | Azure AD Client ID     | GUID
 clientSecret         | Azure AD Client Secret | Secret 
 bearerToken          | Auto-Populated         | Token
 resource             | Azure AD Client ID     | GUID
+
+
+testing relese
