@@ -3,6 +3,16 @@
 ## API for FHIR access
 
 
+Your FHIR server URL, for example, https://MYACCOUNT.azurehealthcareapis.com
+
+The identity provider Authority for your FHIR server, for example, https://login.microsoftonline.com/{TENANT-ID}
+
+The configured audience that is usually the URL of the FHIR server, for example, https://<FHIR-SERVER-NAME>.azurehealthcareapis.com or https://azurehealthcareapis.com.
+
+The client_id or application ID of the confidential client application used for accessing the FHIR service.
+
+The client_secret or application secret of the confidential client application.
+
 
 
 ## API for FHIR access via Microsoft FHIR-Proxy 
