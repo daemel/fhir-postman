@@ -12,7 +12,7 @@ git clone https://github.com/microsoft/fhir-proxy
 ```
 
 
-## Step 1.  deploySyncAgent.bash
+## Step 1.  deployfhirproxy.bash
 This is the main component deployment script for the Azure Components and FHIR-Proxy code.  
 
 Azure Components installed 
