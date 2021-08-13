@@ -64,11 +64,11 @@ resource             | FHIR Endpoint          | URL
 
 
 ## API for FHIR access via Microsoft FHIR-Proxy 
-Creating Postman collections for [Microsoft's FHIR-Proxy](https://github.com/microsoft/fhir-proxy) and its various components can be daunting when starting from nothing.  The fhir-proxy directory contains a sample Postman Environment to help users get started. 
+Creating Postman collections for [Microsoft's FHIR-Proxy](https://github.com/microsoft/fhir-proxy) and its various components can be daunting when starting from nothing.  The fhir-proxy directory in this repo contains a sample Postman Environment to help users get started. 
 
-Details for 
+the 
 
-FHIR-Proxy Keyvault
+__NOTE__ All FHIR-Proxy Postman congiruations can be found in the Keyvault installed during setup 
 
 Postman Env variable | Azure Setting          | Variable Type 
 ---------------------|------------------------|--------------
@@ -76,7 +76,8 @@ tenantId             | Azure AD Tenant ID     | GUID
 clientId             | Azure AD Client ID     | GUID
 clientSecret         | Azure AD Client Secret | Secret 
 bearerToken          | Auto-Populated         | Token
-resource             | Azure AD Client ID     | GUID
+fhirurl              | FHIR Endpoint          | URL
+resource             | FHIR Endpoint          | URL
 
 
 testing relese
