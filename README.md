@@ -13,12 +13,54 @@ A registered [confidential client application](https://docs.microsoft.com/en-us/
 
 __NOTE__ Ensure your client application has a registered reply URL of https://www.getpostman.com/oauth2/callback
 
-
 You have granted permissions to the confidential client application and your user account, for example, "FHIR Data Contributor", to access the FHIR service. For more information, see [Configure Azure RBAC for FHIR](https://docs.microsoft.com/en-us/azure/healthcare-apis/azure-api-for-fhir/configure-azure-rbac).
 
+## Auth - AAD and Tokens 
+The FHIR service is secured by Azure AD. The default authentication can't be disabled. To access the FHIR service, you must get an Azure AD access token first. For more information, see [Microsoft identity platform access tokens](https://docs.microsoft.com/en-us/azure/active-directory/develop/access-tokens).
+
+The POST request AuthorizeGetToken has the following:
+
+URL: https://login.microsoftonline.com/{{tenantid}}/oauth2/token
+
+Body tab set to x-www-form-urlencoded and key value pairs:
+- grant_type: Client_Credentials
+- client_id: {{clientid}}
+- client_secret: {{clientsecret}}
+- resource: {{fhirurl}}
+
+Test to set the bearerToken variable
+```json
+var jsonData = JSON.parse(responseBody);
+postman.setEnvironmentVariable("bearerToken", jsonData.access_token);
+```
+On clicking Send you should see a response with the Azure AD access token, which is saved to the variable accessToken automatically. You can then use it in all FHIR service API requests.
 
  
 ## API for FHIR access
+To access the FHIR service, we'll need to create or update the following variables.
+
+
+fhirurl – The FHIR service full URL. For example, https://xxx.azurehealthcareapis.com. It's located from the FHIR service overview menu option.
+bearerToken – The variable to store the Azure Active Directory (Azure AD) access token in the script. Leave it blank.
+
+Your FHIR server URL, for example, https://MYACCOUNT.azurehealthcareapis.com
+
+The identity provider Authority for your FHIR server, for example, https://login.microsoftonline.com/{TENANT-ID}
+
+The configured audience that is usually the URL of the FHIR server, for example, https://<FHIR-SERVER-NAME>.azurehealthcareapis.com or https://azurehealthcareapis.com.
+
+The client_id or application ID of the confidential client application used for accessing the FHIR service.
+
+The client_secret or application secret of the confidential client application.
+
+Postman Env variable | Azure Setting          | Variable Type 
+---------------------|------------------------|--------------
+tenantId             | Azure AD Tenant ID     | GUID 
+clientId             | Azure AD Client ID     | GUID
+clientSecret         | Azure AD Client Secret | Secret 
+bearerToken          | Auto-Populated         | Token
+resource             | Azure AD Client ID     | GUID
+fhirurl              | FHIR Endpoint          | URL
 
 
 
