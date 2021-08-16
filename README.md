@@ -12,11 +12,13 @@ These environments and collections are designed to work with and have been teste
 ### Prerequisites
 A FHIR endpoint in Azure.  To deploy the Azure API for FHIR (a managed service), you can use the [Azure portal](https://docs.microsoft.com/en-us/azure/healthcare-apis/azure-api-for-fhir/fhir-paas-portal-quickstart), [PowerShell](https://docs.microsoft.com/en-us/azure/healthcare-apis/azure-api-for-fhir/fhir-paas-powershell-quickstart), or [Azure CLI](https://docs.microsoft.com/en-us/azure/healthcare-apis/azure-api-for-fhir/fhir-paas-cli-quickstart).
 
-A registered [confidential client application](https://docs.microsoft.com/en-us/azure/healthcare-apis/azure-api-for-fhir/register-confidential-azure-ad-client-app) to access the FHIR service.
+A registered [client application](https://docs.microsoft.com/en-us/azure/healthcare-apis/azure-api-for-fhir/register-confidential-azure-ad-client-app) to access the FHIR service.
 
-__NOTE__ Ensure your client application has a registered reply URL of https://www.getpostman.com/oauth2/callback
+__NOTES__ 
+- Recommendation is to use either a Service Client or Confidential Client application
+- Ensure your client application has a registered reply URL of https://www.getpostman.com/oauth2/callback
 
-You have granted permissions to the confidential client application and your user account, for example, "FHIR Data Contributor", to access the FHIR service. For more information, see [Configure Azure RBAC for FHIR](https://docs.microsoft.com/en-us/azure/healthcare-apis/azure-api-for-fhir/configure-azure-rbac).
+You have granted permissions to the client application and your user account, for example, "FHIR Data Contributor", to access the FHIR service. For more information, see [Configure Azure RBAC for FHIR](https://docs.microsoft.com/en-us/azure/healthcare-apis/azure-api-for-fhir/configure-azure-rbac).
 
 
 ## Auth - AAD and Tokens 
@@ -80,4 +82,14 @@ fhirurl              | FHIR Endpoint          | URL
 resource             | FHIR Endpoint          | URL
 
 
-testing relese
+## Testing Setup 
+Testing the setup begins simply by adding values to the Environment variables.
+
+1) Download the sampes environments in either [API-FHIR](https://github.com/daemel/fhir-postman/tree/main/api-for-fhir) or [FHIR-Proxy](https://github.com/daemel/fhir-postman/tree/main/fhir-proxy)   
+
+2) Open Postman (web or client), Import the Environments 
+
+3) Go to Environments, select the Environment and enter in the variable information (skip the bearer token)
+
+Environment variables ![Environment_variables](./docs/images/environment_variables.png)
+
