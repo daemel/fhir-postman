@@ -87,9 +87,37 @@ Testing the setup begins simply by adding values to the Environment variables.
 
 1) Download the sampes environments in either [API-FHIR](https://github.com/daemel/fhir-postman/tree/main/api-for-fhir) or [FHIR-Proxy](https://github.com/daemel/fhir-postman/tree/main/fhir-proxy)   
 
-2) Open Postman (web or client), Import the Environments 
+2) Open Postman (web or client), Import the Environment (ie api-for-fhir-postman_environment.json) and the Collections (FHIR-CALLS.postman_collection.json)
 
-3) Go to Environments, select the Environment and enter in the variable information (skip the bearer token)
+3) Go to Environments, select the Environment (api-fhir or fhir-proxy) and enter in the variable information (skip the bearer token) from your Client Application and the FHIR Service
 
-Environment variables ![Environment_variables](./docs/images/environment_variables.png)
+The completed Environment should look something like this
 
+Environment variables ![Environment_variables](./docs/images/environment_variables_example.png)
+
+Remember to set your "active" environment before going to the next step ![Environment_variables](./docs/images/environment_selection.png)
+
+4) Go to Collections, select the FHIR Calls collection to open it then select List Metadata, it should look like this example 
+
+FHIR Calls ![FHIR_Calls](./docs/images/fhir-calls01.png)
+
+5) Click Send (see above) to test the FHIR URL setup and the basic functions of your FHIR Service.  This command does not use Auth (by design) and it returns your FHIR Service Capability Statement. 
+
+FHIR Calls ![FHIR_Calls](./docs/images/fhir-calls_metadata.png)
+
+6) Next Select AuthorizeGetToken.  Note there are values in the call tabs, Authorization, Headers, Body and Tests.  In short this call will call the Azure AD Tenant with your ClientID, ClientSecret and Resource in the Body to obtain a Token.  On receipt of that Token, it is parsed into the bearerToken value.  The result should look like this 
+
+FHIR Calls ![FHIR_Calls](./docs/images/fhir-calls_token.png)
+
+The rest of the Calls use the Token from the step above to Authenticate requests to the FHIR Service.  
+
+## Resources 
+
+[Access the FHIR service using Postman tutorial](https://docs.microsoft.com/en-us/azure/healthcare-apis/fhir/using-postman)
+
+ 
+## FAQ's / Issues 
+
+403 - Unauthorized:  Check the Azure RBAC for FHIR service [link](https://docs.microsoft.com/en-us/azure/healthcare-apis/fhir/configure-azure-rbac-for-fhir)
+
+  
