@@ -113,7 +113,7 @@ The rest of the Calls use the Token from the step above to Authenticate requests
 
 ## Resources 
 
-[Access the FHIR service using Postman tutorial](https://docs.microsoft.com/en-us/azure/healthcare-apis/fhir/using-postman)
+[Access the FHIR service using Postman tutorial](https://docs.microsoft.com/en-us/azure/healthcare-apis/use-postman)
 
  
 ## FAQ's / Issues 
